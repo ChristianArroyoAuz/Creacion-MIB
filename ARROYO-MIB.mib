@@ -1,0 +1,180 @@
+ARROYO-CUSHICONDOR-GUERRA-VIRACOCHA-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	MODULE-IDENTITY, OBJECT-TYPE, Integer32, Opaque, Counter32, TimeTicks, Unsigned32, Gauge32, NOTIFICATION-TYPE, snmpModules, mib-2, enterprises
+	FROM SNMPv2-SMI
+
+	TEXTUAL-CONVENTION, DisplayString, TruthValue, TestAndIncr, TimeStamp
+	FROM SNMPv2-TC
+
+	MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
+	FROM SNMPv2-CONF;
+
+administracion-de-redes MODULE-IDENTITY
+	LAST-UPDATED "201802060000Z"
+    	ORGANIZATION "Escuela Politecnica Nacional, EPN"
+	CONTACT-INFO 
+		     "WG-EMail:   christian.arroyo@epn.edu.ec
+             	      Subscribe:  christian.arroyo@epn.edu.ec
+
+                      Integrante: Arroyo Christian-Escuela Politecnica Nacional
+             	      Ciudad:     Quito-Ecuador
+             	      EMail:      christian.arroyo@epn.edu.ec
+             	      Telefono:   +593 09123456789
+
+		      Integrante: Cushicondor Angel-Escuela Politecnica Nacional
+                      Ciudad:     Quito-Ecuador
+                      EMail:      angel.cushicondor@epn.edu.ec
+                      Telefono:   +593 09123456789
+		  
+		      Integrante: Guerra Yomara-Escuela Politecnica Nacional
+                      Ciudad:     Quito-Ecuador
+                      EMail:      yomara.guerra@epn.edu.ec
+                      Telefono:   +593 09123456789
+
+		      Integrante: Viracocha Javier-Escuela Politecnica Nacional
+                      Ciudad:     Quito-Ecuador
+                      EMail:      javier.viracocha@epn.edu.ec
+                      Telefono:   +593 09123456789"
+	DESCRIPTION 
+		     "Este una MIB personalizada, creada para el Proyecto de Administracion de Redes, de la Escuela Politecnica Nacional. El modulo esta publicado en el RFC 1234."
+	REVISION     "201802060000Z"
+	DESCRIPTION  ""
+	REVISION     "201802060000Z"
+	DESCRIPTION  ""
+::= { enterprises 2018 }
+	
+proyecto-dos OBJECT-TYPE
+	SYNTAX		SEQUENCE OF IntegrantesGrupo
+	MAX-ACCESS	not-accessible
+	STATUS		current
+	DESCRIPTION	"Proyecto Dos de Administracion de Redes."
+	::= { administracion-de-redes 1 }
+
+integrantesGrupo OBJECT-TYPE
+	SYNTAX		IntegrantesGrupo
+    	MAX-ACCESS	not-accessible
+    	STATUS		current
+    	DESCRIPTION	"Nombre de los Integrantes de Administracion de Redes."
+	INDEX		{ christian, angel, yomara, javier }
+	::= { proyecto-dos 1 }
+
+IntegrantesGrupo ::= SEQUENCE {
+	christian	OBJECT IDENTIFIER,
+	angel		OBJECT IDENTIFIER,
+	yomara		OBJECT IDENTIFIER,
+	javier		OBJECT IDENTIFIER
+}
+
+christian OBJECT-TYPE
+	SYNTAX		OBJECT IDENTIFIER
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Integrante 1."
+     	::= { integrantesGrupo 1 }
+
+angel OBJECT-TYPE
+	SYNTAX		OBJECT IDENTIFIER
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION 	"Integrante 2."
+     ::= { integrantesGrupo 2 }
+
+yomara OBJECT-TYPE
+	SYNTAX		OBJECT IDENTIFIER
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Integrante 3."
+     ::= { integrantesGrupo 3 }
+
+javier OBJECT-TYPE
+	SYNTAX		OBJECT IDENTIFIER
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Integrante 4."
+     ::= { integrantesGrupo 4 }
+
+christian-arroyo-nombre OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Estuiante de la Escuela Politecnica Nacional en la carrera de Electronica y Redes de la Informacion. Le Gusta la Programacion."
+	::= { christian 1 }
+
+christian-arroyo-contacto OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"christian.arroyo@epn.edu.ec"
+	::= { christian 2 }
+
+christian-arroyo-ubicacion OBJECT-TYPE
+	SYNTAX		DisplayString (SIZE (0..255))
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Quito-Ecuador."
+	::= { christian 3 }
+
+angel-cushicondor-nombre OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Estuiante de la Escuela Politecnica Nacional en la carrera de Electronica y Redes de la Informacion. Le Gusta la Adminstracion de Redes."
+	::= { angel 1 }
+
+angel-cushicondor-contacto OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"angel.cushicondor@epn.edu.ec"
+	::= { angel 2 }
+
+angel-cushicondor-ubicacion OBJECT-TYPE
+	SYNTAX		DisplayString (SIZE (0..255))
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Quito-Ecuador."
+	::= { angel 3 }
+
+yomara-guerra-nombre OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Estuiante de la Escuela Politecnica Nacional en la carrera de Electronica y Redes de la Informacion. Le Gusta Hello Kitty."
+	::= { yomara 1 }
+
+yomara-guerra-contacto OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"yomara.guerra@epn.edu.ec"
+	::= { yomara 2 }
+
+yomara-guerra-ubicacion OBJECT-TYPE
+	SYNTAX		DisplayString (SIZE (0..255))
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Quito-Ecuador."
+	::= { yomara 3 }
+
+javier-viracocha-nombre OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Estuiante de la Escuela Politecnica Nacional en la carrera de Electronica y Redes de la Informacion. Le Gusta Seguridad en Redes."
+	::= { javier 1 }
+
+javier-viracocha-contacto OBJECT-TYPE
+	SYNTAX		Integer32
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"javier.viracocha@epn.edu.ec"
+	::= { javier 2 }
+
+javier-viracocha-ubicacion OBJECT-TYPE
+	SYNTAX		DisplayString (SIZE (0..255))
+	MAX-ACCESS	read-write
+	STATUS		current
+	DESCRIPTION	"Quito-Ecuador."
+	::= { javier 3 }
+END
