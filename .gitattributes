@@ -1,1 +1,5 @@
-*.mib linguist-language=YAML
+# Como ASN.1 (el estándar en que se basan las MIBs)
+*.mib linguist-language=ASN.1
+
+# Hacer que GitHub re-analice
+* linguist-detectable=true
