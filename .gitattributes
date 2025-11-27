@@ -1,2 +1,1 @@
-# Si ASN.1 no existe, usar estas alternativas:
-*.mib linguist-language=Text
+*.mib linguist-language=YAML
