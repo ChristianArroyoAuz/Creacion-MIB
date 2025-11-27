@@ -1,6 +1,2 @@
 # Si ASN.1 no existe, usar estas alternativas:
-*.mib linguist-language=Text        # Más preciso
-# o
-*.mib linguist-language=Python       # Mejor resaltado
-# o  
-*.mib linguist-language=YAML         # Para datos estructurados
+*.mib linguist-language=Text
