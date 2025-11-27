@@ -1,2 +1,6 @@
-# Como ASN.1 (el estándar en que se basan las MIBs)
-*.mib linguist-language=ASN.1
+# Si ASN.1 no existe, usar estas alternativas:
+*.mib linguist-language=Text        # Más preciso
+# o
+*.mib linguist-language=Python       # Mejor resaltado
+# o  
+*.mib linguist-language=YAML         # Para datos estructurados
